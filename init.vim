@@ -12,7 +12,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-
 " Plug extensions
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -106,12 +105,6 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Initialize neoscroll
 lua require('neoscroll').setup({ easing_function = 'sine' })
-
-" Initialize CtrlP
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'rc'
-let g:ctrlp_custom_ignore = 'node_modules\|git'
 
 " Configure NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
