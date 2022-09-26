@@ -80,11 +80,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Github Copilot
 Plug 'github/copilot.vim'
 
-" File explorer sidebar with icons and Git status
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
+" File explorer sidebar
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Fuzzy finder for files, buffers, etc. (including dependencies)
 Plug 'nvim-lua/plenary.nvim'
@@ -118,8 +116,25 @@ command! -nargs=0 Format :CocCommand format
 command! -nargs=0 F :Format
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
-" Configure NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
+" Configure nvim-tree
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+nnoremap <leader>n :NvimTreeToggle<CR>
+lua << EOF
+require("nvim-tree").setup({
+  update_focused_file = {
+    enable = true,
+  },
+  view = {
+    signcolumn = "auto",
+    mappings = {
+      list = {
+        { key = "+", action = "cd" },
+      },      
+    },
+  },
+})
+EOF
 
 " Configure Telescope
 lua require('telescope').setup{}
