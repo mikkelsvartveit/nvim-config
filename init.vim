@@ -97,6 +97,9 @@ Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
 " Git integration: show modified lines next to line numbers
 Plug 'airblade/vim-gitgutter'
 
+" Tool for resolving Git merge conflicts
+Plug 'rhysd/conflict-marker.vim'
+
 " Smooth scrolling
 Plug 'karb94/neoscroll.nvim'
 
