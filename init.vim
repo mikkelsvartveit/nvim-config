@@ -17,7 +17,8 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'github/copilot.vim'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'karb94/neoscroll.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
@@ -41,7 +42,7 @@ let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yae
 let mapleader = ','
 
 " Set color scheme
-colorscheme nord
+colorscheme onehalfdark
 
 set number
 set relativenumber
