@@ -24,6 +24,9 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
 call plug#end()
 
@@ -114,6 +117,14 @@ lua require('neoscroll').setup({ easing_function = 'sine' })
 " Configure NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" Configure Telescope
+lua require('telescope').setup{}
+lua require('telescope').load_extension('fzf')
+nnoremap <leader>p <cmd>Telescope find_files<cr>
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>t <cmd>Telescope tags<cr>
+
 " Configure ToggleTerm
 lua require("toggleterm").setup{
   \ size = 20,
@@ -193,8 +204,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
