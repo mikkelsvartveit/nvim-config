@@ -1,49 +1,9 @@
-" EXTENSIONS
+" NEOVIM SETTINGS - settings regarding Neovim itself
 
-" Install Plug if not already installed
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * q
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-" Plug extensions
-call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
-Plug 'github/copilot.vim'
-" Plug 'arcticicestudio/nord-vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'karb94/neoscroll.nvim'
-Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
-call plug#end()
-
-" Coc extenstions
-let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yaegassy/coc-volar', 'coc-emmet', 'coc-prettier', 'coc-clangd']
-
-
-
-" NEOVIM SETTINGS
-
-" Set leader key
+" Set leader key to comma, since the default sucks for nordic keyboards
 let mapleader = ','
 
-" Set color scheme
-colorscheme onehalfdark
-
+" Set relative line numbers to make it easier to jump to a line
 set number
 set relativenumber
 
@@ -76,44 +36,84 @@ set breakindent
 " Always show 4 lines above and below the cursor
 set scrolloff=4
 
-" Disable highlighting matching brackets, since it's not obvious where
-" the cursor is.
-let loaded_matchparen = 1
-
 " Exit Terminal mode with Ctrl+k
 tnoremap <C-k> <C-\><C-n>
 
-" Shortcut for opening this config file
+" Type :C to open this config file
 command! -nargs=0 C :e $MYVIMRC
 
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
-" Do this in normal mode...
+" Disable arrow keys in normal mode - enforce hjkl instead
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
-" ...and in insert mode
-" inoremap <Left>  <ESC>:echoe "Use h"<CR>
-" inoremap <Right> <ESC>:echoe "Use l"<CR>
-" inoremap <Up>    <ESC>:echoe "Use k"<CR>
-" inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 
 
-" EXTENSIONS CONFIGURATION
+" PLUGINS - installation and configuration
 
-" Custom Coc config
+" Install Plug (plugin manager) if not already installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * q
+endif
+
+" Install plugins automatically when launching Neovim
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" Fetch plugins with Plug
+call plug#begin()
+
+" Color theme
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" Plug 'arcticicestudio/nord-vim'
+
+" Syntax highlighting for almost every language
+Plug 'sheerun/vim-polyglot'
+
+" VSCode-like language server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Github Copilot
+Plug 'github/copilot.vim'
+
+" File explorer sidebar with icons and Git status
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+
+" Fuzzy finder for files, buffers, etc. (including dependencies)
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+" Persistent terminal that can be toggled with a keybinding
+Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
+
+" Git integration: show modified lines next to line numbers
+Plug 'airblade/vim-gitgutter'
+
+" Smooth scrolling
+Plug 'karb94/neoscroll.nvim'
+
+" End of plugin fetching
+call plug#end()
+
+" Set color scheme
+colorscheme onehalfdark
+
+" Install Coc extenstions
+let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yaegassy/coc-volar', 'coc-emmet', 'coc-prettier', 'coc-clangd']
+
+" Custom options for Coc
 let g:python_highlight_space_errors = 0
 command! -nargs=0 Format :CocCommand format
 command! -nargs=0 F :Format
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
-
-" Initialize neoscroll
-lua require('neoscroll').setup({ easing_function = 'sine' })
 
 " Configure NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
@@ -136,9 +136,13 @@ lua require("toggleterm").setup{
   \ shading_factor = 2,
   \ }
 
+" Configure neoscroll
+lua require('neoscroll').setup({ easing_function = 'sine' })
 
 
-" COC STANDARD CONFIG
+
+" COC DEFAULT CONFIG - required for autocompletion etc. to work properly
+" Copied from the readme: github.com/neoclide/coc.nvim
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
