@@ -37,9 +37,13 @@ let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yae
 " Set leader key
 let mapleader = ','
 
+" Set color scheme
+colorscheme nord
+
 set number
 set relativenumber
 
+" Always show filename in status line
 set statusline=%f
 
 " This setting makes search case-insensitive when all characters in the string
@@ -51,17 +55,21 @@ set smartcase
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 
+" Enable mouse support
 set mouse=nvi
 
+" Use 2 spaces as default indentation
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
-set breakindent
 
+" Enable soft line wrapping
 set wrap
 set linebreak
+set breakindent
 
+" Always show 4 lines above and below the cursor
 set scrolloff=4
 
 " Disable highlighting matching brackets, since it's not obvious where
@@ -71,10 +79,7 @@ let loaded_matchparen = 1
 " Exit Terminal mode with Ctrl+k
 tnoremap <C-k> <C-\><C-n>
 
-" Set color scheme
-colorscheme nord
-
-" Shortcut for opening init.vim
+" Shortcut for opening this config file
 command! -nargs=0 C :e $MYVIMRC
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
@@ -250,7 +255,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
