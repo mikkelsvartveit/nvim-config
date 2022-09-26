@@ -15,7 +15,6 @@ Plug 'github/copilot.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -100,20 +99,13 @@ command! -nargs=0 F :Format
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Initialize neoscroll
-if !exists('g:vscode')
-  lua require('neoscroll').setup({ easing_function = 'sine' })
-endif
+lua require('neoscroll').setup({ easing_function = 'sine' })
 
 " Initialize CtrlP
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rc'
 let g:ctrlp_custom_ignore = 'node_modules\|git'
-
-" Disable Github Copilot in vscode-neovim
-if exists('g:vscode')
-  autocmd VimEnter * Copilot disable
-endif
 
 " Configure NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
