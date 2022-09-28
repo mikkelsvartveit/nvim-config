@@ -125,6 +125,7 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 " Configure nvim-tree
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+nmap gx :!open <c-r><c-a>
 nnoremap <leader>n :NvimTreeToggle<CR>
 lua << EOF
 require("nvim-tree").setup({
