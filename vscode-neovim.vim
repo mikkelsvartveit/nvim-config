@@ -1,0 +1,50 @@
+" NEOVIM SETTINGS - settings regarding Neovim itself
+
+" Set leader key to comma, since the default sucks for nordic keyboards
+let mapleader = ','
+
+" This setting makes search case-insensitive when all characters in the string
+" being searched are lowercase. However, the search becomes case-sensitive if
+" it contains any capital letters. This makes searching more convenient.
+set ignorecase
+set smartcase
+
+" Enable searching as you type, rather than waiting till you press enter.
+set incsearch
+
+" Always show 4 lines above and below the cursor
+set scrolloff=4
+
+" Disable arrow keys in normal mode - enforce hjkl instead
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
+
+
+
+" PLUGINS - installation and configuration
+
+" Install Plug (plugin manager) if not already installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * q
+endif
+
+" Install plugins automatically when launching Neovim
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" Fetch plugins with Plug
+call plug#begin()
+
+" Easy commenting/uncommenting
+Plug 'tpope/vim-commentary'
+
+" Easy handling of surroundings (tags, brackets etc.)
+Plug 'tpope/vim-surround'
+
+" End of plugin fetching
+call plug#end()
