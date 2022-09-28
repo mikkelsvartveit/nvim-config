@@ -36,6 +36,9 @@ set breakindent
 " Always show 4 lines above and below the cursor
 set scrolloff=4
 
+" Save and close all buffers with ZZ
+nnoremap ZZ :wa<CR>:qa<CR>
+
 " Exit Terminal mode with Ctrl+k
 tnoremap <C-k> <C-\><C-n>
 
