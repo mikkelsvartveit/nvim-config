@@ -19,8 +19,8 @@ set smartcase
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 
-" Enable mouse support
-set mouse=nvi
+" Disable mouse support (to force myself to use the keyboard)
+set mouse=
 
 " Use 2 spaces as default indentation
 set tabstop=2
@@ -76,6 +76,12 @@ Plug 'sheerun/vim-polyglot'
 
 " VSCode-like language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Easy commenting/uncommenting
+Plug 'tpope/vim-commentary'
+
+" Easy handling of surroundings (tags, brackets etc.)
+Plug 'tpope/vim-surround'
 
 " Github Copilot
 Plug 'github/copilot.vim'
