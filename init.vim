@@ -101,6 +101,9 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Persistent terminal that can be toggled with a keybinding
 Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
 
+" Easily run code with a keybinding
+Plug 'CRAG666/code_runner.nvim'
+
 " Git integration: show modified lines next to line numbers
 Plug 'airblade/vim-gitgutter'
 
@@ -163,6 +166,18 @@ lua require("toggleterm").setup{
   \ shade_terminals = true,
   \ shading_factor = 2,
   \ }
+
+" Configure code_runner
+lua require('code_runner').setup{
+  \ mode = "toggleterm",
+  \ filetype = {
+    \ python = "python",
+    \ javascript = "node",
+    \ typescript = "node",
+    \ c = "gcc -o main % && ./main",
+    \ },
+  \ }
+nnoremap <leader><CR> :w<CR>:RunCode<CR>
 
 " Configure neoscroll
 lua require('neoscroll').setup({ easing_function = 'sine' })
