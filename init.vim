@@ -132,7 +132,7 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 nmap gx :!open <c-r><c-a>
-nnoremap <leader>n :NvimTreeToggle<CR>
+nnoremap <silent><leader>n :NvimTreeToggle<CR>
 lua << EOF
 require("nvim-tree").setup({
   update_focused_file = {
@@ -178,6 +178,14 @@ lua require('code_runner').setup{
     \ },
   \ }
 nnoremap <leader><CR> :w<CR>:RunCode<CR>
+
+" Configure conflict-marker
+let g:conflict_marker_highlight_group = ''
+highlight ConflictMarkerBegin ctermbg=34 
+highlight ConflictMarkerOurs ctermbg=22  
+highlight ConflictMarkerTheirs ctermbg=27 
+highlight ConflictMarkerEnd ctermbg=39 
+highlight ConflictMarkerCommonAncestorsHunk ctermbg=yellow
 
 " Configure neoscroll
 lua require('neoscroll').setup({ easing_function = 'sine' })
