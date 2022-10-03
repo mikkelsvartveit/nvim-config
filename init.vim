@@ -117,6 +117,9 @@ Plug 'akinsho/toggleterm.nvim', {'tag': '2.3.0'}
 " Easily run code with a keybinding
 Plug 'CRAG666/code_runner.nvim'
 
+" Live Markdown preview in browser
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+
 " Git integration: show modified lines next to line numbers
 Plug 'airblade/vim-gitgutter'
 
