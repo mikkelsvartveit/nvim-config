@@ -153,6 +153,7 @@ require("nvim-tree").setup({
   },
   view = {
     signcolumn = "auto",
+    adaptive_size = true,
     mappings = {
       list = {
         { key = "+", action = "cd" },
@@ -168,7 +169,10 @@ lua require('telescope').load_extension('fzf')
 nnoremap <leader>p <cmd>Telescope find_files<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>o <cmd>Telescope oldfiles<cr>
 nnoremap <leader>t <cmd>Telescope tags<cr>
+nnoremap <leader>: <cmd>Telescope commands<cr>
+nnoremap <leader>d <cmd>Telescope git_status<cr>
 
 " Configure ToggleTerm
 lua require("toggleterm").setup{
