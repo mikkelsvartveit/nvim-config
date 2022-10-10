@@ -149,22 +149,20 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 nmap gx :!open <c-r><c-a>
 nnoremap <silent><leader>n :NvimTreeToggle<CR>
-lua << EOF
-require("nvim-tree").setup({
-  update_focused_file = {
-    enable = true,
-  },
-  view = {
-    signcolumn = "auto",
-    adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "+", action = "cd" },
-      },      
-    },
-  },
-})
-EOF
+lua require("nvim-tree").setup({
+  \ update_focused_file = {
+  \   enable = true,
+  \ },
+  \ view = {
+  \   signcolumn = "auto",
+  \   adaptive_size = true,
+  \   mappings = {
+  \     list = {
+  \       { key = "+", action = "cd" },
+  \     },      
+  \   },
+  \ },
+  \ })
 
 " Configure Telescope
 lua require('telescope').setup{}
