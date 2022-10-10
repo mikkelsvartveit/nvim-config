@@ -146,7 +146,7 @@ colorscheme onehalfdark
 let g:terminal_color_8 = '#6f7a90'
 
 " Install Coc extenstions
-let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yaegassy/coc-volar', 'coc-emmet', 'coc-prettier', 'coc-clangd', 'coc-phpls']
+let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yaegassy/coc-volar', 'coc-emmet', 'coc-prettier', 'coc-clangd', 'coc-phpls', 'coc-yaml']
 
 " Custom options for Coc
 let g:python_highlight_space_errors = 0
