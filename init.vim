@@ -137,7 +137,13 @@ Plug 'karb94/neoscroll.nvim'
 call plug#end()
 
 " Set color scheme
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 colorscheme onehalfdark
+let g:terminal_color_8 = '#6f7a90'
 
 " Install Coc extenstions
 let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yaegassy/coc-volar', 'coc-emmet', 'coc-prettier', 'coc-clangd', 'coc-phpls']
