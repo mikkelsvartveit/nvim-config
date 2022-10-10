@@ -3,6 +3,10 @@
 " Set leader key to comma, since the default sucks for nordic keyboards
 let mapleader = ','
 
+" Set UI language to English
+set langmenu=en_US
+let $LANG = 'en_US'
+
 " Set relative line numbers to make it easier to jump to a line
 set number
 set relativenumber
