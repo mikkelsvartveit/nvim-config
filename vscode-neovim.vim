@@ -15,6 +15,12 @@ set incsearch
 " Always show 4 lines above and below the cursor
 set scrolloff=4
 
+" Allow using uppercase W and Q commands to save/quit
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
 " Map leader bindings to VSCode commands
 nnoremap <leader>p <cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>
 nnoremap <leader>b <cmd>call VSCodeNotify('workbench.action.showAllEditors')<cr>

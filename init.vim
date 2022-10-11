@@ -46,6 +46,12 @@ nnoremap ZZ :wa<CR>:qa<CR>
 " Exit Terminal mode with Ctrl+k
 tnoremap <C-k> <C-\><C-n>
 
+" Allow using uppercase W and Q commands to save/quit
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
 " Type :C to open this config file
 command! -nargs=0 C :e $MYVIMRC
 
