@@ -21,6 +21,19 @@ command Wq wq
 command W w
 command Q q
 
+" Make yank use system clipboard as default
+:nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+:nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
+:nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+:xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+:xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+
+" Map 'gp' to paste from system clipboard
+:nnoremap <expr> gp (v:register ==# '"' ? '"+' : '') . 'p'
+:nnoremap <expr> gP (v:register ==# '"' ? '"+' : '') . 'P'
+:xnoremap <expr> gp (v:register ==# '"' ? '"+' : '') . 'p'
+:xnoremap <expr> gP (v:register ==# '"' ? '"+' : '') . 'P'
+
 " Map leader bindings to VSCode commands
 nnoremap <leader>p <cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>
 nnoremap <leader>b <cmd>call VSCodeNotify('workbench.action.showAllEditors')<cr>
