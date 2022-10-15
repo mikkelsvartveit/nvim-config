@@ -163,6 +163,7 @@ let g:coc_global_extensions = [
   \ 'coc-svelte',
   \ 'coc-emmet', 
   \ 'coc-prettier', 
+  \ 'coc-eslint',
   \ 'coc-clangd', 
   \ 'coc-phpls', 
   \ 'coc-yaml'
