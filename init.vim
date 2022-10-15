@@ -40,12 +40,6 @@ set breakindent
 " Always show 4 lines above and below the cursor
 set scrolloff=4
 
-" Save and close all buffers with ZZ
-nnoremap ZZ :wa<CR>:qa<CR>
-
-" Exit Terminal mode with Ctrl+k
-tnoremap <C-k> <C-\><C-n>
-
 " Allow using uppercase W and Q commands to save/quit
 command WQ wq
 command Wq wq
@@ -55,24 +49,33 @@ command Q q
 " Type :C to open this config file
 command! -nargs=0 C :e $MYVIMRC
 
+" Save and close all buffers with ZZ
+nnoremap ZZ :wa<CR>:qa<CR>
+
+" Exit Terminal mode with Ctrl+k
+tnoremap <C-k> <C-\><C-n>
+
 " Make yank use system clipboard as default
-:nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
-:nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
-:nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
-:xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
-:xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
+nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
 
 " Map 'gp' to paste from system clipboard
-:nnoremap <expr> gp (v:register ==# '"' ? '"+' : '') . 'p'
-:nnoremap <expr> gP (v:register ==# '"' ? '"+' : '') . 'P'
-:xnoremap <expr> gp (v:register ==# '"' ? '"+' : '') . 'p'
-:xnoremap <expr> gP (v:register ==# '"' ? '"+' : '') . 'P'
+nnoremap <expr> gp (v:register ==# '"' ? '"+' : '') . 'p'
+nnoremap <expr> gP (v:register ==# '"' ? '"+' : '') . 'P'
+xnoremap <expr> gp (v:register ==# '"' ? '"+' : '') . 'p'
+xnoremap <expr> gP (v:register ==# '"' ? '"+' : '') . 'P'
+
+" Press Enter to clear search highlighting
+nnoremap <silent><CR> :nohlsearch<CR>
 
 " Disable arrow keys in normal mode - enforce hjkl instead
-nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up>    :echoe "Use k"<CR>
-nnoremap <Down>  :echoe "Use j"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 
 
