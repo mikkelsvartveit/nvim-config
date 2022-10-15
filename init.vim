@@ -163,6 +163,11 @@ command! -nargs=0 Format :CocCommand format
 command! -nargs=0 F :Format
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
+" Disable Github Copilot on launch and configure keybindings
+autocmd VimEnter * Copilot disable
+nnoremap <leader>cpe :Copilot enable<CR>
+nnoremap <leader>cpd :Copilot disable<CR>
+
 " Configure nvim-tree
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
