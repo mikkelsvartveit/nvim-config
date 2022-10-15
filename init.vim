@@ -100,11 +100,11 @@ call plug#begin()
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 " Plug 'arcticicestudio/nord-vim'
 
-" Syntax highlighting for almost every language
-Plug 'sheerun/vim-polyglot'
-
 " VSCode-like language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Syntax highlighting for almost every language
+Plug 'sheerun/vim-polyglot'
 
 " Easy commenting/uncommenting
 Plug 'tpope/vim-commentary'
@@ -155,13 +155,29 @@ colorscheme onehalfdark
 let g:terminal_color_8 = '#6f7a90'
 
 " Install Coc extenstions
-let g:coc_global_extensions = ['coc-pairs', 'coc-pyright', 'coc-tsserver', '@yaegassy/coc-volar', 'coc-emmet', 'coc-prettier', 'coc-clangd', 'coc-phpls', 'coc-yaml']
+let g:coc_global_extensions = [
+  \ 'coc-pairs', 
+  \ 'coc-pyright', 
+  \ 'coc-tsserver', 
+  \ '@yaegassy/coc-volar', 
+  \ 'coc-svelte',
+  \ 'coc-emmet', 
+  \ 'coc-prettier', 
+  \ 'coc-clangd', 
+  \ 'coc-phpls', 
+  \ 'coc-yaml'
+  \ ]
 
 " Custom options for Coc
 let g:python_highlight_space_errors = 0
 command! -nargs=0 Format :CocCommand format
 command! -nargs=0 F :Format
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
+" Configure vim-polyglot
+let g:vim_svelte_plugin_load_full_syntax = 1
+let g:vim_svelte_plugin_use_typescript = 1
+let g:vim_svelte_plugin_use_sass = 1
 
 " Disable Github Copilot on launch and configure keybindings
 autocmd VimEnter * Copilot disable
