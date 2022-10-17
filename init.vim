@@ -11,9 +11,9 @@ let $LANG = 'en_US'
 set number
 set relativenumber
 
-" Always show filename in status line
-set statusline=%f
-
+" Always show filename and modified marker in status line
+set statusline=%f\ %m
+  
 " This setting makes search case-insensitive when all characters in the string
 " being searched are lowercase. However, the search becomes case-sensitive if
 " it contains any capital letters. This makes searching more convenient.
