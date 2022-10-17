@@ -49,6 +49,9 @@ command Q q
 " Type :C to open this config file
 command! -nargs=0 C :e $MYVIMRC
 
+" Type ':R' to reload config file
+command! -nargs=0 R :source $MYVIMRC
+
 " Save and close all buffers with ZZ
 nnoremap ZZ :wa<CR>:qa<CR>
 
