@@ -1,4 +1,17 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "html",
+    "css",
+    "scss",
+    "sass",
+    "js",
+    "ts",
+    "jsx",
+    "tsx",
+    "vue",
+    "svelte",
+    "json"
+  ],
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/Library/Frameworks/Python.framework/Versions/3.9/bin/black",
   "pyright.inlayHints.functionReturnTypes": false,
