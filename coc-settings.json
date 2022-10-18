@@ -1,16 +1,14 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-    "html",
-    "css",
-    "scss",
-    "sass",
-    "js",
-    "ts",
-    "jsx",
-    "tsx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
     "vue",
     "svelte",
-    "json"
+    "json",
+    "graphql",
+    "markdown"
   ],
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "/Library/Frameworks/Python.framework/Versions/3.9/bin/black",
