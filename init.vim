@@ -110,7 +110,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 
 " Easy commenting/uncommenting
-Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
 
 " Easy handling of surroundings (tags, brackets etc.)
 Plug 'tpope/vim-surround'
@@ -159,17 +159,14 @@ let g:terminal_color_8 = '#6f7a90'
 
 " Install Coc extenstions
 let g:coc_global_extensions = [
-  \ 'coc-pairs', 
   \ 'coc-pyright', 
+  \ 'coc-clangd', 
   \ 'coc-tsserver', 
   \ '@yaegassy/coc-volar', 
   \ 'coc-svelte',
   \ 'coc-emmet', 
   \ 'coc-prettier', 
   \ 'coc-eslint',
-  \ 'coc-clangd', 
-  \ 'coc-phpls', 
-  \ 'coc-yaml'
   \ ]
 
 " Custom options for Coc
@@ -182,6 +179,9 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 let g:vim_svelte_plugin_load_full_syntax = 1
 let g:vim_svelte_plugin_use_typescript = 1
 let g:vim_svelte_plugin_use_sass = 1
+
+" Configure Comment.nvim
+lua require('Comment').setup()
 
 " Disable Github Copilot on launch and configure keybindings
 autocmd VimEnter * Copilot disable

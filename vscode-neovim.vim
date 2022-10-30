@@ -69,10 +69,13 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 " Easy commenting/uncommenting
-Plug 'tpope/vim-commentary'
+Plug 'numToStr/Comment.nvim'
 
 " Easy handling of surroundings (tags, brackets etc.)
 Plug 'tpope/vim-surround'
 
 " End of plugin fetching
 call plug#end()
+
+" Configure Comment.nvim
+lua require('Comment').setup()
