@@ -241,6 +241,9 @@ lua require('code_runner').setup{
   \ }
 nnoremap <leader><CR> :w<CR>:RunCode<CR>
 
+" Configure markdown-preview
+let g:mkdp_auto_close = 0
+
 " Configure conflict-marker
 let g:conflict_marker_highlight_group = ''
 highlight ConflictMarkerBegin ctermbg=34 
