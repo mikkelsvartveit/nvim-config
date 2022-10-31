@@ -246,11 +246,13 @@ let g:mkdp_auto_close = 0
 
 " Configure conflict-marker
 let g:conflict_marker_highlight_group = ''
-highlight ConflictMarkerBegin ctermbg=34 
-highlight ConflictMarkerOurs ctermbg=22  
-highlight ConflictMarkerTheirs ctermbg=27 
-highlight ConflictMarkerEnd ctermbg=39 
-highlight ConflictMarkerCommonAncestorsHunk ctermbg=yellow
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerOurs guibg=#2e5049
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd guibg=#2f628e
+highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
 
 " Configure neoscroll
 lua require('neoscroll').setup({ easing_function = 'sine' })

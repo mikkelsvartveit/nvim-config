@@ -15,11 +15,8 @@ set incsearch
 " Always show 4 lines above and below the cursor
 set scrolloff=4
 
-" Allow using uppercase W and Q commands to save/quit
-command WQ wq
-command Wq wq
-command W w
-command Q q
+" Allow using uppercase :W to save
+command W call VSCodeCall('workbench.action.files.save')
 
 " Make yank use system clipboard as default
 :nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
