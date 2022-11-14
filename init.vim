@@ -218,6 +218,7 @@ nnoremap <leader>o <cmd>Telescope oldfiles<cr>
 nnoremap <leader>t <cmd>Telescope tags<cr>
 nnoremap <leader>: <cmd>Telescope commands<cr>
 nnoremap <leader>d <cmd>Telescope git_status<cr>
+nnoremap <leader><leader> <cmd>Telescope resume<cr>
 
 " Configure ToggleTerm
 lua require("toggleterm").setup{
